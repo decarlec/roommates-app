@@ -7,7 +7,7 @@ import { MainScreenComponent } from './main-screen/main-screen.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskItemComponent } from './task-item/task-item.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbCardModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -23,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     NoopAnimationsModule,
     NbThemeModule.forRoot({ name: 'cosmic' }),
+    NbCardModule,
     NbLayoutModule,
     NbEvaIconsModule,
     AppRoutingModule,
