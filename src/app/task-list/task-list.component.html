@@ -2,8 +2,10 @@
 
 <div>
     <ul class="tasklist">
-        <li *ngFor="let task of tasks" (click)="onSelect(task)" [class.selected]="task === selectedTask">
-            {{task.name}}
+        <li *ngFor="let task of tasks" (click)="onClick(task)" (contextmenu)="onRightClick($event, task)" [class.selected]="task === selectedTask"
+        class="bg-gradient-to-b from-green-300 to-green-400">
+            <div>{{task.name}}</div>
+            <div>{{task.detailsText}}</div>
         </li>
     </ul>
 </div>
