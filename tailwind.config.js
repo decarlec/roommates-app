@@ -7,7 +7,12 @@ module.exports = {
   },
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Averia: [ "Averia Serif Libre", "cursive"],
+        SuezOne: [ "Suez One", "serif" ]
+      }
+    },
   },
   variants: {
     extend: {},
