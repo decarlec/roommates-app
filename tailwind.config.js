@@ -9,13 +9,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Averia: [ "Averia Serif Libre", "cursive"],
-        SuezOne: [ "Suez One", "serif" ]
+        Raleway: [ "Raleway", "sans-serif"]
       }
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/forms'),require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/forms'),require('@tailwindcss/typography'),require('tailwindcss-textshadow')],
 };
