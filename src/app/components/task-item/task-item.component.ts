@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { TaskItem } from '../../TaskItem';
 
 @Component({
@@ -8,10 +8,15 @@ import { TaskItem } from '../../TaskItem';
 })
 
 export class TaskItemComponent implements OnInit {
-
   @Input() taskItem: TaskItem;
 
+  showSubtasks: boolean = false;
+
   ngOnInit(): void {
+  }
+
+  onClick(){
+    this.showSubtasks = !this.showSubtasks;
   }
 
 }
