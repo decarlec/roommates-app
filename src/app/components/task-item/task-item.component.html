@@ -1,0 +1,11 @@
+<div
+  class="bg-blue-300 rounded-md ml-1 border-b border-r border-blue-100"
+>
+  <h3 class="p-0.5 font-SourceSansPro text-shadow ml-2" (click)="onClick()">{{ taskItem.name }}</h3>
+  <div *ngIf="showSubtasks">
+    <app-subtask
+      *ngFor="let subTask of taskItem.Subtasks"
+      [subtask]="subTask"
+    ></app-subtask>
+  </div>
+</div>

@@ -3,20 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { MainScreenComponent } from './main-screen/main-screen.component';
-import { TaskListComponent } from './task-list/task-list.component';
-import { TaskItemComponent } from './task-item/task-item.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbCardModule } from '@nebular/theme';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { AppRoutingModule } from './app-routing.module';
+import { MainScreenComponent } from './components/main-screen/main-screen.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
+import { TaskItemComponent } from './components/task-item/task-item.component';
+import { SubtaskComponent } from './components/subtask/subtask.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainScreenComponent,
     TaskListComponent,
-    TaskItemComponent
+    TaskItemComponent,
+    SubtaskComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,0 @@
-<h3>This week</h3>
-
-<div>
-    <ul class="tasklist">
-        <li *ngFor="let task of tasks" (click)="onSelect(task)" [class.selected]="task === selectedTask">
-            {{task.name}}
-        </li>
-    </ul>
-</div>
