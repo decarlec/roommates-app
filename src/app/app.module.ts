@@ -19,12 +19,6 @@ import { SubtaskComponent } from './components/subtask/subtask.component';
   imports: [
     BrowserModule,
     FormsModule,
-    NoopAnimationsModule,
-    NbThemeModule.forRoot({ name: 'cosmic' }),
-    NbCardModule,
-    NbLayoutModule,
-    NbEvaIconsModule,
-    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
