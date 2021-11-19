@@ -1,7 +1,26 @@
-<div
-  class="bg-blue-300 rounded-md ml-1 border-b border-r border-blue-100"
->
-  <h3 class="p-0.5 font-SourceSansPro text-shadow ml-2" (click)="onClick()">{{ taskItem.name }}</h3>
+<div class="rounded-md ml-1 border-b border-r border-blue-100 bg-blue-300">
+  <div class="flex" (click)="onClick()">
+    <div
+      class="flex-grow p-0.5 font-SourceSansPro text-shadow ml-2"
+    >
+      <span class="flex-initial pl-1 pr-2 text-blue-900 text-shadow-sm">{{
+        taskItem.name
+      }}</span>
+      <svg
+        *ngIf="taskItem.Subtasks"
+        class="inline-block h-4 w-4 text-white"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </div>
+    <div *ngIf="taskItem.completed" class="pr-4 font-sans font-light text-sm text-blue-500">Done</div>
+  </div>
   <div *ngIf="showSubtasks">
     <app-subtask
       *ngFor="let subTask of taskItem.Subtasks"
