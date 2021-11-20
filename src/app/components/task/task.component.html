@@ -8,8 +8,8 @@
         taskItem.name
       }}</span>
       <!--Expand Icon-->
-      <svg
-        *ngIf="taskItem.Subtasks; else checkboxTemplate"
+      <!-- <svg
+        *ngIf="task.Subtasks; else checkboxTemplate"
         class="inline-block h-4 w-4 text-white"
         viewBox="0 0 24 24"
         fill="none"
@@ -19,7 +19,7 @@
         stroke-linejoin="round"
       >
         <polyline points="6 9 12 15 18 9" />
-      </svg>
+      </svg> -->
       <!-- Checkbox -->
       <ng-template #checkboxTemplate>
         <input
@@ -49,10 +49,10 @@
     </div>
   </div>
   <!-- subtasks -->
-  <div *ngIf="showSubtasks">
+  <!-- <div *ngIf="showSubtasks">
     <app-subtask
-      *ngFor="let subTask of taskItem.Subtasks"
+      *ngFor="let subTask of task.Subtasks"
       [subtask]="subTask"
     ></app-subtask>
-  </div>
+  </div> -->
 </div>
