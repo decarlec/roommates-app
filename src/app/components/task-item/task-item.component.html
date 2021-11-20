@@ -1,13 +1,15 @@
 <div class="rounded-md ml-1 border-b border-r border-blue-100 bg-blue-300">
+  <!-- Task item flex box allows clicking anywhere in the screen element -->
   <div class="flex" (click)="onClick()">
-    <div
-      class="flex-grow p-0.5 font-SourceSansPro text-shadow ml-2"
-    >
+    <!-- Task item outer container -->
+    <div class="flex-grow p-0.5 font-SourceSansPro text-shadow ml-2">
+      <!-- Item name -->
       <span class="flex-initial pl-1 pr-2 text-blue-900 text-shadow-sm">{{
         taskItem.name
       }}</span>
+      <!--Expand Icon-->
       <svg
-        *ngIf="taskItem.Subtasks"
+        *ngIf="taskItem.Subtasks; else checkboxTemplate"
         class="inline-block h-4 w-4 text-white"
         viewBox="0 0 24 24"
         fill="none"
@@ -18,9 +20,35 @@
       >
         <polyline points="6 9 12 15 18 9" />
       </svg>
+      <!-- Checkbox -->
+      <ng-template #checkboxTemplate>
+        <input
+          class="
+            w-3
+            h-3
+            rounded
+            ml-2
+            mr-1
+            mb-1
+            mt-0.5
+            inline-block
+            text-white-900
+            focus:ring-blue-200 focus:ring-opacity-0
+            border-white
+          "
+          type="checkbox"
+        />
+      </ng-template>
     </div>
-    <div *ngIf="taskItem.completed" class="pr-4 font-sans font-light text-sm text-blue-500">Done</div>
+    <!-- Done right display -->
+    <div
+      *ngIf="taskItem.completed"
+      class="pr-4 font-sans font-light text-sm text-blue-500"
+    >
+      Done
+    </div>
   </div>
+  <!-- subtasks -->
   <div *ngIf="showSubtasks">
     <app-subtask
       *ngFor="let subTask of taskItem.Subtasks"
