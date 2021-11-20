@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 
 export class TaskComponent implements OnInit {
-  @Input() taskItem: Task;
+  @Input() task: Task;
 
   showSubtasks: boolean = false;
 

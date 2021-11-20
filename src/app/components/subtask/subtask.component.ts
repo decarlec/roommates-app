@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-//import { Subtask } from 'src/app/Subtask.ts.old';
+import { Subtask } from 'src/app/models/subtask';
 
 @Component({
   selector: 'app-subtask',
@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./subtask.component.css']
 })
 export class SubtaskComponent implements OnInit {
-  //@Input() subtask : Subtask;
+  @Input() subtask : Subtask;
   constructor() { }
 
   ngOnInit(): void {

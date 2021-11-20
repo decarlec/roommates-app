@@ -22,8 +22,8 @@ export class TaskListComponent implements OnInit {
   }
 
   onClick(){
-    //const task : Task = { id: 1, name: "Task", completed: false };
-    //this.store.dispatch(addTask(task));
+    const task : Task = { id: 1, name: "Task", completed: false };
+    this.store.dispatch(addTask(task));
   }
   ngOnInit(): void {
   }
