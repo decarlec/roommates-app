@@ -6,9 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-screen.component.css']
 })
 export class MainScreenComponent implements OnInit {
-
-  //Strings
-  header = "roommates";
   constructor() { }
 
   ngOnInit(): void {

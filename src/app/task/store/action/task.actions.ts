@@ -10,6 +10,11 @@ export const addTask = createAction(
   (task: Task) => ({task})
 );
 
+export const deleteTask = createAction(
+  '[Task] Delete Task',
+  (task: Task) => ({task})
+);
+
 
 
 

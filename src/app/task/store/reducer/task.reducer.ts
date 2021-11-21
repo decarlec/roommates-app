@@ -13,13 +13,17 @@ export interface TaskState {
 export const initialState: TaskState = {
   tasks: TASKS,
 }
-  //Tasks: TASKS
+
 export const taskReducer = createReducer(
   initialState,
   on(TaskActions.addTask,
     (state: TaskState, {task}) =>
       ({...state,
         tasks: [...state.tasks, task]
-      }))
+      })),
+  on(TaskActions.deleteTask,
+    (state: TaskState, {task}) =>
+      ({...state,
+        tasks: state.tasks.filter((targetTask) => targetTask !== task)}))
 );
 

@@ -8,6 +8,7 @@ import { Subtask } from 'src/app/models/subtask';
 })
 export class SubtaskComponent implements OnInit {
   @Input() subtask : Subtask;
+  completed: boolean = false;
   constructor() { }
 
   ngOnInit(): void {

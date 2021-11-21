@@ -1,5 +1,5 @@
 <div class="bg-blue-200">
 <h3 class="font-sans text-blue-500 px-1">This week</h3>
 <button (click)="onClick()">Add Task</button>
-<app-task *ngFor="let taskItem of tasks$ | async;" [task]="taskItem"></app-task>
+<app-task *ngFor="let taskItem of tasks$ | async;" [task]="taskItem" (deleted)="handleTaskDeletion(taskItem)"></app-task>
 </div>

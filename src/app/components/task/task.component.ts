@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core'
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
 import { Task } from 'src/app/models/task';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-task',
@@ -10,6 +9,7 @@ import { Observable } from 'rxjs';
 
 export class TaskComponent implements OnInit {
   @Input() task: Task;
+  @Output() deleted: EventEmitter<Task> = new EventEmitter();
 
   showSubtasks: boolean = false;
 
@@ -18,6 +18,10 @@ export class TaskComponent implements OnInit {
 
   onClick(){
     this.showSubtasks = !this.showSubtasks;
+  }
+
+  onDoubleClick(){
+    this.deleted.emit(this.task);
   }
 
 }
