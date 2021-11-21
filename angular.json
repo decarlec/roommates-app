@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "roommates-app"
+  "defaultProject": "roommates-app",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

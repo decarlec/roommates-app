@@ -1,7 +1,7 @@
-import { TaskItem } from './TaskItem';
-import { Subtask } from './Subtask';
+import { Task } from 'src/app/models/task';
+//import { Subtask } from './Subtask.ts.old';
 
-export const TASKS: TaskItem[] = [
+export const TASKS: Task[] = [
   {
     id: 1,
     name: 'Clean the bathroom',

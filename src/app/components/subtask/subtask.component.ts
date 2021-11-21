@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Subtask } from 'src/app/Subtask';
+import { Subtask } from 'src/app/models/subtask';
 
 @Component({
   selector: 'app-subtask',
@@ -8,6 +8,7 @@ import { Subtask } from 'src/app/Subtask';
 })
 export class SubtaskComponent implements OnInit {
   @Input() subtask : Subtask;
+  completed: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
