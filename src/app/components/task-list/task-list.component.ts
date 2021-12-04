@@ -4,7 +4,7 @@ import { Task } from 'src/app/models/task';
 import { select, Store }  from '@ngrx/store';
 import { selectTasks } from 'src/app/task/store/selector/task.selectors'
 import { TaskState } from 'src/app/task/store/reducer/task.reducer'
-import { addTask, deleteTask } from 'src/app/task/store/action/task.actions';
+import { addTask, deleteTask, updateTask } from 'src/app/task/store/action/task.actions';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -18,16 +18,22 @@ export class TaskListComponent implements OnInit {
   taskEventSubscription = this
   
   constructor(private store: Store<TaskState>){
+    //Populate tasks from store
     this.tasks$ = this.store.pipe(select(selectTasks));
   }
 
   onClick(){
     const task : Task = { id: 1, name: "Task", completed: false };
+
     this.store.dispatch(addTask(task));
   }
 
   handleTaskDeletion(task: Task){
     this.store.dispatch(deleteTask(task));
+  }
+
+  handleTaskChanged(task: Task){
+    this.store.dispatch(updateTask(task));
   }
 
   ngOnInit(): void {
