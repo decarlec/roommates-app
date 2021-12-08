@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 //import { TASKS } from '../../mock-tasks.ts';
-import { Task } from 'src/app/models/task';
-import { select, Store }  from '@ngrx/store';
-import { selectTasks } from 'src/app/task/store/selector/task.selectors'
-import { TaskState } from 'src/app/task/store/reducer/task.reducer'
-import { addTask, deleteTask, updateTask } from 'src/app/task/store/action/task.actions';
+import { getAllTasks } from 'src/app/task/task.selectors';
+import { taskActionTypes } from 'src/app/task/task.actions';
+import { TaskState } from 'src/app/task/task.reducers';
+import { Task } from 'src/app/task/model/task.model';
+import { Store }  from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { TaskService } from 'src/app/task/services/task.service';
+import { Update } from '@ngrx/entity';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-task-list',
@@ -17,26 +20,47 @@ export class TaskListComponent implements OnInit {
   tasks$: Observable<Task[]>;
   taskEventSubscription = this
   
-  constructor(private store: Store<TaskState>){
-    //Populate tasks from store
-    this.tasks$ = this.store.pipe(select(selectTasks));
-  }
+  taskToBeUpdated: Task;
 
-  onClick(){
-    const task : Task = { id: 1, name: "Task", completed: false };
-
-    this.store.dispatch(addTask(task));
-  }
-
-  handleTaskDeletion(task: Task){
-    this.store.dispatch(deleteTask(task));
-  }
-
-  handleTaskChanged(task: Task){
-    this.store.dispatch(updateTask(task));
+  isUpdateActivated = false;
+  
+  constructor(private taskService: TaskService, private store: Store<TaskState>){
   }
 
   ngOnInit(): void {
+    this.tasks$ = this.store.select(getAllTasks);
+  }
+
+  onClick(){
+    //Do nothing
+  }
+
+  handleTaskChanged(task : Task){
+    //Do nothing
+  }
+
+  deleteTask(taskId: number){
+    this.store.dispatch(taskActionTypes.deleteTask({taskId}))
+  }
+
+  showUpdateForm(task: Task){
+    this.taskToBeUpdated = { ...task };
+    this.isUpdateActivated = true;
+  }
+
+  updateTask(updateForm){
+    const update: Update<Task> = {
+      id: this.taskToBeUpdated.id,
+      changes:{
+        ...this.taskToBeUpdated,
+        ...updateForm.value
+      }
+    };
+
+    this.store.dispatch(taskActionTypes.updateTask({update}))
+
+    this.isUpdateActivated = false;
+    this.taskToBeUpdated = null;
   }
 
 }

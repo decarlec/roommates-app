@@ -1,4 +1,4 @@
-import { Subtask } from "./subtask";
+import { Subtask } from "../../models/subtask";
 
 export interface Task {
     id: number;
