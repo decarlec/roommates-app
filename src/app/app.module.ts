@@ -23,9 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     TaskModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatSliderModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
