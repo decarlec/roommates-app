@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
+import { MatSliderModule } from '@angular/material/slider';
 import { AppComponent } from './app.component';
 import { MainScreenComponent } from './components/main-screen/main-screen.component';
 import { StoreModule } from '@ngrx/store';
@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     TaskModule,
     BrowserAnimationsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
