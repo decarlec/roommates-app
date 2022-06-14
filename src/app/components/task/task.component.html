@@ -1,35 +1,25 @@
-<div>
+<mat-list>
   <!-- Task item flex box allows clicking anywhere in the screen element -->
   <div (click)="onClick()" (dblclick)="onDoubleClick()">
-    <!-- Task item outer container -->
-    <div>
-      <!-- Item name -->
-      <span>{{
-        task.name
-      }}</span>
-      <!--Expand Icon-->
-      <svg
-        class="inline-block h-4 w-4 text-white"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <polyline points="6 9 12 15 18 9" />
-      </svg>
-      <!-- Checkbox -->
-      <mat-checkbox></mat-checkbox>
-    </div>
-    <!-- Done right display -->
-    <div
-      *ngIf="task.completed"
-      class="pr-4 font-sans font-light text-sm text-blue-500"
+    <!-- Checkbox -->
+    <mat-checkbox></mat-checkbox>
+    <!-- Item name -->
+    <span>{{ task.name }}</span>
+    <!--Expand Icon-->
+    <svg
+      class="inline-block h-4 w-4 text-white"
+      viewBox="0 0 24 24"
+      fill="black"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     >
-      Done
-    </div>
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
   </div>
+  <!-- Done right display -->
+  <div *ngIf="task.completed">Done</div>
   <!-- subtasks -->
   <div *ngIf="showSubtasks">
     <app-subtask
@@ -37,4 +27,4 @@
       [subtask]="subTask"
     ></app-subtask>
   </div>
-</div>
+</mat-list>
