@@ -1,6 +1,6 @@
 <div>
-  <!-- subtask description -->
-  <div>{{ subtask.description }}</div>
-  <!-- checkbox -->
-  <input type="checkbox" [checked]="completed" (change)="completed = !completed;"/>
+  <mat-card>
+    {{ subtask.description }} {{subtask.completed}}
+    <mat-checkbox [checked]="subtask.completed" (change)="subtask.completed = !subtask.completed;"></mat-checkbox>
+  </mat-card>
 </div>

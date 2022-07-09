@@ -5,7 +5,7 @@ export const TASKS: Task[] = [
   {
     id: 1,
     name: 'Clean the bathroom',
-    completed: false,
+    completed: true,
     Subtasks: [{ id: 1, description: 'Scrub the floor', completed: false }],
   },
   { id: 2, name: 'Take out the garbage', completed: false },
