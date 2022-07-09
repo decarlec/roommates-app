@@ -1,7 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import * as TaskActions from 'src/app/task/store/action/task.actions';
 import { Task } from 'src/app/models/task';
-import { TASKS } from 'src/app/mock-tasks';
 
 
 export const taskFeatureKey = 'task';
@@ -11,7 +10,7 @@ export interface TaskState {
 }
 
 export const initialState: TaskState = {
-  tasks: TASKS,
+  tasks: []
 }
 
 export const taskReducer = createReducer(
@@ -32,7 +31,7 @@ export const taskReducer = createReducer(
     (state: TaskState, { task }) =>
     ({
       ...state,
-      task: task = task
+      
     })),
 
 );

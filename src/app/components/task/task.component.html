@@ -2,7 +2,7 @@
   <!-- Task item flex box allows clicking anywhere in the screen element -->
   <div (click)="onClick()">
     <mat-checkbox [checked]="task.completed" (change)="onCheck()"></mat-checkbox>
-    <span>{{ task.name }}{{ completed$ | async}}</span>
+    <span>{{ task.name }}{{ task.completed }}</span>
   </div>
   <!-- Done right display -->
   <div *ngIf="task.completed">Done</div>

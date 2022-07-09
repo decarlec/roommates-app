@@ -10,6 +10,9 @@ import { environment } from '../environments/environment';
 import { TaskModule } from './task/task.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { TaskService } from './services/taskservice';
+import { EffectsModule } from '@ngrx/effects';
+import { TaskEffects } from './task/store/effect/task.effects';
 
 @NgModule({
   declarations: [
@@ -22,9 +25,10 @@ import { MaterialModule } from './material.module';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     TaskModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    EffectsModule.forRoot([TaskEffects])
   ],
-  providers: [],
+  providers: [ TaskService ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

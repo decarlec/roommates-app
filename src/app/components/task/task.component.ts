@@ -14,7 +14,6 @@ export class TaskComponent implements OnInit {
   @Output() deleted: EventEmitter<Task> = new EventEmitter();
   @Output() update: EventEmitter<Task> = new EventEmitter();
 
-  completed$: Observable<boolean>;
   showSubtasks: boolean = false;
 
   ngOnInit(): void {

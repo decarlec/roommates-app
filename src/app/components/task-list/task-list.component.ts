@@ -4,7 +4,7 @@ import { Task } from 'src/app/models/task';
 import { select, Store }  from '@ngrx/store';
 import { selectTasks } from 'src/app/task/store/selector/task.selectors'
 import { TaskState } from 'src/app/task/store/reducer/task.reducer'
-import { addTask, deleteTask } from 'src/app/task/store/action/task.actions';
+import { addTask, deleteTask, loadTasks } from 'src/app/task/store/action/task.actions';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -14,11 +14,15 @@ import { Observable } from 'rxjs';
 })
 export class TaskListComponent implements OnInit {
 
-  tasks$: Observable<Task[]>;
+  tasks$: Observable<Task[]> = this.store.select(state => state.tasks)
   taskEventSubscription = this
   
-  constructor(private store: Store<TaskState>){
-    this.tasks$ = this.store.pipe(select(selectTasks));
+  constructor(private store: Store<{ tasks: Task[]}>){
+    //this.tasks$ = this.store.pipe(select(selectTasks));
+  }
+
+  ngOnInit(){
+    this.store.dispatch(loadTasks());
   }
 
   onClick(){
@@ -28,9 +32,6 @@ export class TaskListComponent implements OnInit {
 
   handleTaskDeletion(task: Task){
     this.store.dispatch(deleteTask(task));
-  }
-
-  ngOnInit(): void {
   }
 
 }
