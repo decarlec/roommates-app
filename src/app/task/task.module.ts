@@ -6,13 +6,16 @@ import { taskFeatureKey, taskReducer } from './store/reducer/task.reducer';
 import { TaskComponent } from '../components/task/task.component';
 import { SubtaskComponent } from '../components/subtask/subtask.component';
 import { MaterialModule } from '../material.module';
+import { TaskEffects } from './store/effect/task.effects';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [TaskListComponent, TaskComponent, SubtaskComponent],
   imports: [
     CommonModule,
     StoreModule.forFeature(taskFeatureKey, taskReducer),
-    MaterialModule
+    MaterialModule,
+    EffectsModule.forFeature([TaskEffects])
   ],
   exports:[
     TaskListComponent,

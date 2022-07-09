@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class TaskListComponent implements OnInit {
 
-  tasks$: Observable<Task[]> = this.store.select(state => state.tasks)
+  tasks$: Observable<Task[]> = this.store.select(selectTasks)
   taskEventSubscription = this
   
   constructor(private store: Store<{ tasks: Task[]}>){
