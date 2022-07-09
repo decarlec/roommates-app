@@ -20,7 +20,7 @@ export const taskReducer = createReducer(
     (state: TaskState, { tasks }) =>
     ({
       ...state,
-      tasks: tasks
+      tasks: [...state.tasks, ...tasks]
     })),
   on(TaskActions.addTask,
     (state: TaskState, { task }) =>

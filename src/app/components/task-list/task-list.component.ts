@@ -18,16 +18,19 @@ export class TaskListComponent implements OnInit {
   taskEventSubscription = this
   
   constructor(private store: Store<{ tasks: Task[]}>){
-    //this.tasks$ = this.store.pipe(select(selectTasks));
   }
 
   ngOnInit(){
     this.store.dispatch(loadTasks());
   }
 
-  onClick(){
+  onClick_Add(){
     const task : Task = { id: 1, name: "Task", completed: false };
     this.store.dispatch(addTask(task));
+  }
+
+  onClick_Load(){
+    this.store.dispatch(loadTasks())
   }
 
   handleTaskDeletion(task: Task){
