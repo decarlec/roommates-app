@@ -20,15 +20,15 @@ export class TaskComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClick(){
+  onClick() {
     this.showSubtasks = !this.showSubtasks;
   }
 
-  onDoubleClick(){
+  onDoubleClick() {
     this.deleted.emit(this.task);
   }
 
-  onCheck(){
+  onCheck() {
     this.completeChanged.emit(this.task);
   }
 

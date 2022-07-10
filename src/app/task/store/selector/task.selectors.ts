@@ -1,8 +1,8 @@
 import { createFeatureSelector, createSelector, ActionReducerMap } from '@ngrx/store';
 import * as fromTask from 'src/app/task/store/reducer/task.reducer'
 
-export interface State{
-tasks: fromTask.TaskState
+export interface State {
+    tasks: fromTask.TaskState
 }
 
 export const reducers: ActionReducerMap<State> = {

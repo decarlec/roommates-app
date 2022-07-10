@@ -1,13 +1,13 @@
-import { taskReducer, initialState } from './task.reducer';
+import { taskReducer, initialTaskState } from './task.reducer';
 
 describe('Task Reducer', () => {
   describe('an unknown action', () => {
     it('should return the previous state', () => {
       const action = {} as any;
 
-      const result = taskReducer(initialState, action);
+      const result = taskReducer(initialTaskState, action);
 
-      expect(result).toBe(initialState);
+      expect(result).toBe(initialTaskState);
     });
   });
 });
