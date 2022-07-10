@@ -12,7 +12,6 @@ export const TASKS: Task[] = [
   { id: 2, name: 'Add database integration, resarch best kind', completed: false },
   {
     id: 3, name: 'Create login, authentication system', completed: false,
-    Subtasks: [{ id: 1, description: '💩', completed: false }],
   },
   {
     id: 4, name: 'Deploy app', completed: false,
