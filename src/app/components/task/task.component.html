@@ -2,10 +2,10 @@
   <!-- Task item flex box allows clicking anywhere in the screen element -->
   <div (click)="onClick()">
     <mat-checkbox [checked]="task.completed" (change)="onCheck()"></mat-checkbox>
-    <span>{{ task.name }}{{ task.completed }}</span>
+    <span [ngStyle]="{'color': task.completed ? 'blue' : 'black'}">{{ task.name }}
+      </span>
   </div>
   <!-- Done right display -->
-  <div *ngIf="task.completed">Done</div>
   <!-- subtasks -->
   <div *ngIf="showSubtasks">
     <app-subtask

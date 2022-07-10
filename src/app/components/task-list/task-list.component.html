@@ -1,7 +1,7 @@
 <div>
   <!-- header -->
   <div>
-    <h3 >This week</h3>
+    <!-- <h3 >This week</h3> -->
     <button (click)="onClick_Add()">
       add
     </button>
@@ -9,7 +9,6 @@
       load
     </button>
   </div>
-
   <app-task
     *ngFor="let taskItem of tasks$ | async"
     [task]="taskItem"

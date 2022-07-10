@@ -15,7 +15,7 @@ export class TaskComponent implements OnInit {
   @Output() completeChanged: EventEmitter<Task> = new EventEmitter();
 
   showSubtasks: boolean = false;
-  completed: boolean;
+  //completed: boolean;
 
   ngOnInit(): void {
   }
