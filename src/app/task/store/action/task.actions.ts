@@ -1,3 +1,4 @@
+import { Update } from '@ngrx/entity';
 import { createAction, props } from '@ngrx/store';
 import { Task } from 'src/app/models/task';
 
@@ -22,7 +23,8 @@ export const deleteTask = createAction(
 
 export const updateTask = createAction(
   '[Task] Update Task',
-  (task: Task) => ({task})
+  //(update: Update<Task>) => ({update})
+  props<{payload: { task: Update<Task>}}>()
 );
 
 

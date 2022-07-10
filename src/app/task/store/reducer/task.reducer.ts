@@ -1,45 +1,46 @@
-import { Action, createReducer, on } from '@ngrx/store';
+import { Action, createReducer, on, StateObservable } from '@ngrx/store';
 import * as TaskActions from 'src/app/task/store/action/task.actions';
 import { Task } from 'src/app/models/task';
-import { state } from '@angular/animations';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 
 
-export const taskFeatureKey = 'task';
+export const taskFeatureKey = 'tasks';
 
-export interface TaskState {
-  tasks: Task[];
+export interface TaskState extends EntityState<Task> {
 }
 
-export const initialState: TaskState = {
-  tasks: []
-}
+export const adapter : EntityAdapter<Task> =
+  createEntityAdapter<Task>();
+
+export const initialTaskState: TaskState =
+  adapter.getInitialState();
 
 export const taskReducer = createReducer(
-  initialState,
+  initialTaskState,
   on(TaskActions.tasksLoaded,
-    (state: TaskState, { tasks }) =>
-    ({
-      ...state,
-      tasks: [...state.tasks, ...tasks]
-    })),
+    (state, { tasks }) => adapter.setAll(tasks, state)),
   on(TaskActions.addTask,
-    (state: TaskState, { task }) =>
-    ({
-      ...state,
-      tasks: [...state.tasks, task]
-    })),
+    (state, {task}) => adapter.addOne(task, state)),
   on(TaskActions.deleteTask,
-    (state: TaskState, { task }) =>
-    ({
-      ...state,
-      tasks: state.tasks.filter((targetTask) => targetTask !== task)
-    })),
-  on(TaskActions.updateTask,
-    (state: TaskState, { task }) =>
-    ({
-      ...state,
-      
-    })),
-
+    (state, { task }) => adapter.removeOne(task.id, state)),
+    on(TaskActions.updateTask,
+      (state, { payload }) => adapter.updateOne(payload.task, state))
 );
 
+const {
+  selectIds,
+  selectEntities,
+  selectAll,
+  selectTotal
+} = adapter.getSelectors();
+
+export const selectTaskIds = selectIds;
+
+// select the dictionary of user entities
+export const selectTaskEntities = selectEntities;
+ 
+// select the array of users
+export const selectAllTasks = selectAll;
+ 
+// select the total user count
+export const selectTaskTotal = selectTotal;

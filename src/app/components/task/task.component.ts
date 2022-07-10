@@ -12,9 +12,10 @@ import { taskFeatureKey } from 'src/app/task/store/reducer/task.reducer';
 export class TaskComponent implements OnInit {
   @Input() task: Task;
   @Output() deleted: EventEmitter<Task> = new EventEmitter();
-  @Output() update: EventEmitter<Task> = new EventEmitter();
+  @Output() completeChanged: EventEmitter<Task> = new EventEmitter();
 
   showSubtasks: boolean = false;
+  completed: boolean;
 
   ngOnInit(): void {
   }
@@ -28,7 +29,7 @@ export class TaskComponent implements OnInit {
   }
 
   onCheck(){
-    this.update.emit(this.task);
+    this.completeChanged.emit(this.task);
   }
 
 }

@@ -14,5 +14,6 @@
     *ngFor="let taskItem of tasks$ | async"
     [task]="taskItem"
     (deleted)="handleTaskDeletion(taskItem)"
+    (completeChanged)="handleCompleteChanged(taskItem)"
   ></app-task>
 </div>
