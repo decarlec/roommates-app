@@ -4,7 +4,7 @@ import { Task } from 'src/app/models/task';
 
 export const tasksLoaded = createAction(
   '[Task API] Tasks Loaded Success',
-  (tasks: Task[]) => ({tasks})
+  props<{ tasks: Task[]}>()
 );
 
 export const loadTasks = createAction(
@@ -13,18 +13,17 @@ export const loadTasks = createAction(
 
 export const addTask = createAction(
   '[Task] Add Task',
-  (task: Task) => ({task})
+  props<{ task: Task}>()
 );
 
 export const deleteTask = createAction(
   '[Task] Delete Task',
-  (task: Task) => ({task})
+  props<{ task: Task}>()
 );
 
 export const updateTask = createAction(
   '[Task] Update Task',
-  //(update: Update<Task>) => ({update})
-  props<{payload: { task: Update<Task>}}>()
+  props<{ update: Update<Task>}>()
 );
 
 

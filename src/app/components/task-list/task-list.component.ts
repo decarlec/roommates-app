@@ -26,7 +26,7 @@ export class TaskListComponent implements OnInit {
 
   onClick_Add(){
     const task : Task = { id: 10, name: "Task", completed: false };
-    this.store.dispatch(addTask(task));
+    this.store.dispatch(addTask({ task }));
   }
 
   onClick_Load(){
@@ -34,13 +34,13 @@ export class TaskListComponent implements OnInit {
   }
 
   handleTaskDeletion(task: Task){
-    this.store.dispatch(deleteTask(task));
+    this.store.dispatch(deleteTask({ task} ));
   }
 
   handleCompleteChanged(data: Task){
     const t = {... data};
     t.completed = !t.completed
-    this.store.dispatch(updateTask({ payload: { task: { id: data.id, changes: t } } }));
+    this.store.dispatch(updateTask({ update: { id: data.id, changes: t } } ));
   }
 
 }

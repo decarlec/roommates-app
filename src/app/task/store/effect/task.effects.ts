@@ -13,7 +13,7 @@ export class TaskEffects {
     ofType(loadTasks),
     mergeMap(() => this.taskService.getTasks()
       .pipe(
-        map(tasks => (tasksLoaded(tasks))),
+        map(tasks => (tasksLoaded({tasks}))),
         catchError(() => EMPTY)
       ))
     )

@@ -24,7 +24,7 @@ export const taskReducer = createReducer(
   on(TaskActions.deleteTask,
     (state, { task }) => adapter.removeOne(task.id, state)),
     on(TaskActions.updateTask,
-      (state, { payload }) => adapter.updateOne(payload.task, state))
+      (state, { update }) => adapter.updateOne(update, state))
 );
 
 const {
