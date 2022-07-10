@@ -7,7 +7,7 @@ import { Subtask } from 'src/app/models/subtask';
   styleUrls: ['./subtask.component.css']
 })
 export class SubtaskComponent implements OnInit {
-  @Input() subtask : Subtask;
+  @Input() subtask: Subtask;
   completed: boolean = false;
   constructor() { }
 

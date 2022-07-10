@@ -9,7 +9,7 @@ export const taskFeatureKey = 'tasks';
 export interface TaskState extends EntityState<Task> {
 }
 
-export const adapter : EntityAdapter<Task> =
+export const adapter: EntityAdapter<Task> =
   createEntityAdapter<Task>();
 
 export const initialTaskState: TaskState =
@@ -20,11 +20,11 @@ export const taskReducer = createReducer(
   on(TaskActions.tasksLoaded,
     (state, { tasks }) => adapter.setAll(tasks, state)),
   on(TaskActions.addTask,
-    (state, {task}) => adapter.addOne(task, state)),
+    (state, { task }) => adapter.addOne(task, state)),
   on(TaskActions.deleteTask,
     (state, { task }) => adapter.removeOne(task.id, state)),
-    on(TaskActions.updateTask,
-      (state, { update }) => adapter.updateOne(update, state))
+  on(TaskActions.updateTask,
+    (state, { update }) => adapter.updateOne(update, state))
 );
 
 const {
@@ -38,9 +38,9 @@ export const selectTaskIds = selectIds;
 
 // select the dictionary of user entities
 export const selectTaskEntities = selectEntities;
- 
+
 // select the array of users
 export const selectAllTasks = selectAll;
- 
+
 // select the total user count
 export const selectTaskTotal = selectTotal;
