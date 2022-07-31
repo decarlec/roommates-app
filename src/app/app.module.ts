@@ -28,7 +28,7 @@ import { TaskEffects } from './task/store/effect/task.effects';
     MaterialModule,
     EffectsModule.forRoot([TaskEffects])
   ],
-  providers: [ TaskService ],
+  providers: [TaskService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

@@ -17,7 +17,7 @@ import { EffectsModule } from '@ngrx/effects';
     MaterialModule,
     EffectsModule.forFeature([TaskEffects])
   ],
-  exports:[
+  exports: [
     TaskListComponent,
     TaskComponent,
     SubtaskComponent,
