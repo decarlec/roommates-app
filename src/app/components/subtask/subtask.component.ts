@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Subtask } from 'src/app/models/subtask';
 
 @Component({
@@ -8,8 +8,14 @@ import { Subtask } from 'src/app/models/subtask';
 })
 export class SubtaskComponent implements OnInit {
   @Input() subtask : Subtask;
-  completed: boolean = false;
+  @Output() changed: EventEmitter<Subtask> = new EventEmitter();
+  
   constructor() { }
+
+  checkboxOnClick(){
+    this.subtask.completed = !this.subtask.completed;
+   this.changed.emit(this.subtask);
+  }
 
   ngOnInit(): void {
   }

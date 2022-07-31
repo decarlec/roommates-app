@@ -2,5 +2,22 @@
   <!-- subtask description -->
   <div class="p-1 text-blue-900 text-shadow-sm">{{ subtask.description }}</div>
   <!-- checkbox -->
-  <input type="checkbox" [checked]="completed" (change)="completed = !completed;" class="w-3 h-3 rounded ml-2 mr-1 mb-1 mt-1.5 inline-block text-white-900 focus:ring-blue-200 focus:ring-opacity-0 border-white"/>
+  <input
+    type="checkbox"
+    [checked]="subtask.completed"
+    (change)="checkboxOnClick()"
+    class="
+      w-3
+      h-3
+      rounded
+      ml-2
+      mr-1
+      mb-1
+      mt-1.5
+      inline-block
+      text-white-900
+      focus:ring-blue-200 focus:ring-opacity-0
+      border-white
+    "
+  />
 </div>
