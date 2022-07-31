@@ -8,7 +8,7 @@ import { Store }  from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { TaskService } from 'src/app/task/services/task.service';
 import { Update } from '@ngrx/entity';
-import { ThisReceiver } from '@angular/compiler';
+//import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-task-list',
@@ -28,7 +28,7 @@ export class TaskListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.tasks$ = this.store.select(getAllTasks);
+    this.tasks$ = this.taskService.getAllTasks();
   }
 
   onClick(){

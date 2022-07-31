@@ -9,14 +9,14 @@
       Edit
     </button>
   </div>
-
+  <!-- Task list -->
   <app-task
     *ngFor="let taskItem of tasks$ | async"
     [task]="taskItem"
     (deleted)="deleteTask(taskItem.id)"
     (changed)="handleTaskChanged(taskItem)"
   ></app-task>
-  <div *ngIf="isUpdateActivated">
+  <!-- <div *ngIf="isUpdateActivated">
     <h4>Update Task</h4>
     <form (ngSubmit)="updateTask(updateForm)" #updateForm="ngForm">
       <div class="form-group">
@@ -32,5 +32,5 @@
       </div>
       <button [disabled]="updateForm.invalid" class="btn btn-primary" type="submit">Update</button>
     </form>
-  </div>
+  </div> -->
 </div>
