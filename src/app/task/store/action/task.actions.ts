@@ -1,7 +1,6 @@
 import { Update } from '@ngrx/entity';
 import { createAction, props } from '@ngrx/store';
-import { Task } from 'src/app/models/task';
-
+import { Task } from '../../model/task.model';
 export const tasksLoaded = createAction(
   '[Task API] Tasks Loaded Success',
   props<{ tasks: Task[] }>()

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Task } from 'src/app/models/task';
+import { Task } from 'src/app/task/model/task.model';
 import { select, Store, UPDATE } from '@ngrx/store';
 import { selectTasks } from 'src/app/task/store/selector/task.selectors'
 import { TaskState } from 'src/app/task/store/reducer/task.reducer'

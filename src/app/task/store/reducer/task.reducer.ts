@@ -1,6 +1,6 @@
 import { Action, createReducer, on, StateObservable } from '@ngrx/store';
 import * as TaskActions from 'src/app/task/store/action/task.actions';
-import { Task } from 'src/app/models/task';
+import { Task } from 'src/app/task/model/task.model';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 
 
