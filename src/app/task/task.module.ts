@@ -1,31 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TaskService } from './services/task.service';
-import { TaskEffects } from './task.effects';
-import { FormsModule } from '@angular/forms';
 import { TaskListComponent } from '../components/task-list/task-list.component';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { taskReducer } from './task.reducers';
-import { CreateTaskComponent } from '../components/create-task/create-task.component';
+import { Store, StoreModule } from '@ngrx/store';
+import { taskFeatureKey, taskReducer } from './store/reducer/task.reducer';
 import { TaskComponent } from '../components/task/task.component';
 import { SubtaskComponent } from '../components/subtask/subtask.component';
+import { MaterialModule } from '../material.module';
+import { TaskEffects } from './store/effect/task.effects';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
-  declarations: [
-    TaskListComponent,
-    CreateTaskComponent,
-    TaskComponent,
-    SubtaskComponent,
-    CreateTaskComponent,
-  ],
+  declarations: [TaskListComponent, TaskComponent, SubtaskComponent],
   imports: [
     CommonModule,
-    FormsModule,
-    StoreModule.forFeature('tasks', taskReducer),
-    EffectsModule.forFeature([TaskEffects]),
+    StoreModule.forFeature(taskFeatureKey, taskReducer),
+    MaterialModule,
+    EffectsModule.forFeature([TaskEffects])
   ],
-  providers: [TaskService],
-  exports: [TaskListComponent, CreateTaskComponent],
+  exports: [
+    TaskListComponent,
+    TaskComponent,
+    SubtaskComponent,
+  ]
 })
-export class TaskModule {}
+export class TaskModule { }

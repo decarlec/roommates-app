@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subtask } from 'src/app/models/subtask';
 
 @Component({
@@ -7,15 +7,9 @@ import { Subtask } from 'src/app/models/subtask';
   styleUrls: ['./subtask.component.css']
 })
 export class SubtaskComponent implements OnInit {
-  @Input() subtask : Subtask;
-  @Output() changed: EventEmitter<Subtask> = new EventEmitter();
-  
+  @Input() subtask: Subtask;
+  completed: boolean = false;
   constructor() { }
-
-  checkboxOnClick(){
-    this.subtask.completed = !this.subtask.completed;
-   this.changed.emit(this.subtask);
-  }
 
   ngOnInit(): void {
   }

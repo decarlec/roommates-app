@@ -1,36 +1,18 @@
-<div class="bg-blue-200">
+<div>
   <!-- header -->
   <div>
-    <h3 class="font-sans text-blue-500 px-1">This week</h3>
-    <button
-      class="btn px-2 bg-blue-800 text-white rounded-md"
-      (click)="onClick()"
-    >
-      Edit
+    <!-- <h3 >This week</h3> -->
+    <button (click)="onClick_Add()">
+      add
+    </button>
+    <button (click)="onClick_Load()">
+      load
     </button>
   </div>
-  <!-- Task list -->
   <app-task
     *ngFor="let taskItem of tasks$ | async"
     [task]="taskItem"
-    (deleted)="deleteTask(taskItem.id)"
-    (changed)="handleTaskChanged(taskItem)"
+    (deleted)="handleTaskDeletion(taskItem)"
+    (completeChanged)="handleCompleteChanged(taskItem)"
   ></app-task>
-  <!-- <div *ngIf="isUpdateActivated">
-    <h4>Update Task</h4>
-    <form (ngSubmit)="updateTask(updateForm)" #updateForm="ngForm">
-      <div class="form-group">
-        <label for="name">Task Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          class="form-control"
-          required
-          [(ngModel)]="taskToBeUpdated.name"
-        />
-      </div>
-      <button [disabled]="updateForm.invalid" class="btn btn-primary" type="submit">Update</button>
-    </form>
-  </div> -->
 </div>

@@ -1,69 +1,16 @@
-<div class="rounded-md ml-1 border-b border-r border-blue-100 bg-blue-300">
+<div>
   <!-- Task item flex box allows clicking anywhere in the screen element -->
-  <div class="flex" (click)="onClick()">
-    <!-- Task item outer container -->
-    <div class="flex-grow p-0.5 font-SourceSansPro text-shadow ml-2">
-      <!-- Item name -->
-      <span *ngIf="!isEditMode" class="flex-initial pl-1 pr-2 text-blue-900 text-shadow-sm">{{
-        task.name
-      }}</span>
-      <input
-          type="text"
-          id="name"
-          name="name"
-          class="form-control flex-initial bg-blue-200 text-sm p-0 border-0 rounded-md pl-2"
-          required
-          [(ngModel)]="task.name"
-        />
-      <!--Expand Icon-->
-      <svg
-        *ngIf="task.Subtasks; else checkboxTemplate"
-        class="inline-block h-4 w-4 text-white"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <polyline points="6 9 12 15 18 9" />
-      </svg>
-      <!-- Checkbox -->
-      <ng-template #checkboxTemplate>
-        <input
-          type="checkbox"
-          [checked]="task.completed"
-          (change)="checkboxOnClick()"
-          class="
-            w-3
-            h-3
-            rounded
-            ml-2
-            mr-1
-            mb-1
-            mt-0.5
-            inline-block
-            text-white-900
-            focus:ring-blue-200 focus:ring-opacity-0
-            border-white
-          "
-        />
-      </ng-template>
-    </div>
-    <!-- Done right display -->
-    <div
-      *ngIf="task.completed"
-      class="pr-4 font-sans font-light text-sm text-blue-500"
-    >
-      Done
-    </div>
+  <div (click)="onClick()">
+    <mat-checkbox [checked]="task.completed" (change)="onCheck()"></mat-checkbox>
+    <span [ngStyle]="{'color': task.completed ? 'blue' : 'black'}">{{ task.name }}
+      </span>
   </div>
+  <!-- Done right display -->
   <!-- subtasks -->
   <div *ngIf="showSubtasks">
     <app-subtask
       *ngFor="let subTask of task.Subtasks"
       [subtask]="subTask"
-      (changed)="handleSubtaskChanged(subTask)"
     ></app-subtask>
   </div>
 </div>
