@@ -2,8 +2,12 @@
   <!-- header -->
   <div>
     <!-- <h3 >This week</h3> -->
-    <button (click)="onClick_Add()">add</button>
-    <button (click)="onClick_Load()">load</button>
+    <button mat-raised-button color="primary" (click)="onClick_Add()">
+      Add
+    </button>
+    <button mat-raised-button color="primary" (click)="onClick_Load()">
+      Reload
+    </button>
   </div>
   <mat-list>
     <app-task
