@@ -2,17 +2,15 @@
   <!-- header -->
   <div>
     <!-- <h3 >This week</h3> -->
-    <button (click)="onClick_Add()">
-      add
-    </button>
-    <button (click)="onClick_Load()">
-      load
-    </button>
+    <button (click)="onClick_Add()">add</button>
+    <button (click)="onClick_Load()">load</button>
   </div>
-  <app-task
-    *ngFor="let taskItem of tasks$ | async"
-    [task]="taskItem"
-    (deleted)="handleTaskDeletion(taskItem)"
-    (completeChanged)="handleCompleteChanged(taskItem)"
-  ></app-task>
+  <mat-list>
+    <app-task
+      *ngFor="let taskItem of tasks$ | async"
+      [task]="taskItem"
+      (deleted)="handleTaskDeletion(taskItem)"
+      (completeChanged)="handleCompleteChanged(taskItem)"
+    ></app-task>
+  </mat-list>
 </div>
