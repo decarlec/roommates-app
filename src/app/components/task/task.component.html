@@ -5,7 +5,7 @@
       [checked]="task.completed"
       (change)="onCheck()"
     ></mat-checkbox>
-    <span [ngStyle]="{ color: task.completed ? 'blue' : 'black' }"
+    <span [ngStyle]="{ color: task.completed ? 'grey' : null }"
       >{{ task.name }}
     </span>
   </div>
