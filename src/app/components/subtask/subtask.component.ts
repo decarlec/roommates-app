@@ -4,7 +4,7 @@ import { Subtask } from 'src/app/models/subtask';
 @Component({
   selector: 'app-subtask',
   templateUrl: './subtask.component.html',
-  styleUrls: ['./subtask.component.css']
+  styleUrls: ['./subtask.component.scss']
 })
 export class SubtaskComponent implements OnInit {
   @Input() subtask: Subtask;
